@@ -72,12 +72,29 @@ each service will have:
 
 ### backend
 
+- Gin for handlers
 - Viper as config loader
 - ZeroLog as logger
 - SQLC for generating database layer
-- GolangMigrate for database migration
 - GoMock for generating test mocks
+
+### database
+
+- DBDiagram for schema generation
+- GolangMigrate for database migration
 
 ## development
 
 - create your own `config.yaml` based on `config.yaml.example`
+
+```bash
+docker compose up -d
+```
+
+```bash
+docker compose logs -f
+```
+
+```bash
+docker compose down
+```
