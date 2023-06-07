@@ -46,6 +46,7 @@
 - aggregation service
 - gateway service
 - database service
+- frontend service
 
 each service will have:
 

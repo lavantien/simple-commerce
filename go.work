@@ -1,1 +1,16 @@
 go 1.20
+
+use (
+	./aggregation
+	./database
+	./frontend
+	./gateway
+	./inventory
+	./order
+	./payment
+	./product
+	./shipping
+	./user
+	./vendor_payment
+	./vendor_shipping
+)
