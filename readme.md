@@ -43,10 +43,11 @@
 - inventory service
 - payment service
 - shipping service
-- aggregation service
+- aggregator service
 - gateway service
 - database service
 - frontend service
+- common service
 
 each service will have:
 
@@ -66,6 +67,7 @@ each service will have:
 - auth in Paseto
 - use Docker Compose
 - GitHub Actions CI
+- custom log aggregator
 - test coverage goal of 100%
 
 ### backend
@@ -75,3 +77,7 @@ each service will have:
 - SQLC for generating database layer
 - GolangMigrate for database migration
 - GoMock for generating test mocks
+
+## development
+
+- create your own `config.yaml` based on `config.yaml.example`
