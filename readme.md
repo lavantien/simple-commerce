@@ -38,16 +38,19 @@
 ### overall
 
 - user service
+- review service
 - product service
-- order service
 - inventory service
+- category service
+- order service
 - payment service
 - shipping service
 - aggregator service
 - gateway service
+- common service
 - database service
 - frontend service
-- common service
+- server service
 
 each service will have:
 
@@ -80,7 +83,7 @@ each service will have:
 
 ### database
 
-- DBDiagram for schema generation
+- handcrafted schemas
 - GolangMigrate for database migration
 
 ## development
