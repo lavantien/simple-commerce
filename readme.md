@@ -35,6 +35,10 @@
 
 ## technical
 
+### models
+
+- [schemas](/database/readme.md)
+
 ### overall
 
 - user service
