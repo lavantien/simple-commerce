@@ -64,7 +64,6 @@ each service will have:
 - backend in Go
 - communication via HTTP
 - frontend SSR in Go HTML template and CSS
-- mobile in Dart/Flutter
 - main database in Postgres
 - log database in Mongo
 - auth in Paseto
