@@ -1,15 +1,8 @@
 package common
 
 import (
-	"errors"
-
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
-)
-
-var (
-	ErrorFailedToReadConfig = errors.New("failed to read config")
-	ErrorLoadDefaultConfig  = errors.New("failed to load config, load default config instead")
 )
 
 type Configurer struct {
@@ -22,26 +15,32 @@ type Configurer struct {
 	DatabaseConnectionString string
 }
 
-func NewConfigurer(logger *zerolog.Logger) *Configurer {
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
-	viper.AddConfigPath("../.")
-	viper.AddConfigPath(".")
+var (
+	TextFailedToReadConfig = "failed to read config, load default config instead"
+	TextLoadDefaultConfig  = "failed to load config, load default config instead"
+	defaultConfigurer      = &Configurer{
+		ServerHost:               "localhost",
+		ServerPort:               "8081",
+		DatabaseHost:             "localhost",
+		DatabasePort:             "5433",
+		DatabaseUser:             "postgres",
+		DatabsePassword:          "postgres",
+		DatabaseConnectionString: "postgres://postgres:postgres@localhost:5433/postgres",
+	}
+)
+
+func NewConfigurer(fileName string, fileType string, filePath string, logger *zerolog.Logger) *Configurer {
+	viper.SetConfigName(fileName)
+	viper.SetConfigType(fileType)
+	viper.AddConfigPath(filePath)
 	logger.Info().Str("service", serviceName).Msgf("config file used: %v", viper.GetViper().ConfigFileUsed())
 	if err := viper.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
-			logger.Error().Str("service", serviceName).Err(err).Msg(ErrorLoadDefaultConfig.Error())
-			return &Configurer{
-				ServerHost:               "localhost",
-				ServerPort:               "8081",
-				DatabaseHost:             "localhost",
-				DatabasePort:             "5433",
-				DatabaseUser:             "postgres",
-				DatabsePassword:          "postgres",
-				DatabaseConnectionString: "postgres://postgres:postgres@localhost:5433/postgres",
-			}
+			logger.Error().Str("service", serviceName).Err(err).Msg(TextLoadDefaultConfig)
+			return defaultConfigurer
 		} else {
-			logger.Fatal().Str("service", serviceName).Err(err).Msg(ErrorFailedToReadConfig.Error())
+			logger.Error().Str("service", serviceName).Err(err).Msg(TextFailedToReadConfig)
+			return defaultConfigurer
 		}
 	}
 	connectionString := "postgres://" + viper.GetString("database.user") + ":" + viper.GetString("database.password") + "@" + viper.GetString("database.host") + ":" + viper.GetString("database.port") + "/" + viper.GetString("database.name")

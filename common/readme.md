@@ -4,7 +4,13 @@
 
 - Implement Configurer
 - Implement Logger
-- Implement Functional generic functions
+- Implement Functional generic functions:
+  - Map
+  - Filter
+  - Reduce
+  - FlatMap
+  - Some
+  - All
 
 ## Usage
 

@@ -43,6 +43,9 @@ func Some[T any](in []T, fn func(T) bool) bool {
 }
 
 func All[T any](in []T, fn func(T) bool) bool {
+	if len(in) == 0 {
+		return false
+	}
 	for _, v := range in {
 		if !fn(v) {
 			return false
