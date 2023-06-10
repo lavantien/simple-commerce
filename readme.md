@@ -100,6 +100,12 @@ each service will have:
 
 ## development
 
+- sync dependencies
+
+```bash
+go work sync
+```
+
 - create your own `config.yaml` based on `config.yaml.example`
 
 ```bash
