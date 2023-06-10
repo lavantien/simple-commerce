@@ -7,4 +7,4 @@ if (( $(echo "$COVERAGE <= 50" | bc -l) )) ; then
     elif (( $(echo "$COVERAGE > 80" | bc -l) )); then
     COLOR=green
 fi
-curl "https://img.shields.io/badge/coverage-$COVERAGE%25-$COLOR" > badge.svg
+curl "https://img.shields.io/badge/coverage-$COVERAGE%25-$COLOR" > coverage.svg
