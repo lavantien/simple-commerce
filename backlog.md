@@ -1,6 +1,6 @@
 # Backlog
 
-- [ ] 10. add GitHub CI pipeline
+- [x] 10. add GitHub CI pipeline
 - [x] 9. add coverage badge
 - [x] 8. add coverage pipeline
 - [x] 7. add makefile
