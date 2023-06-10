@@ -1,5 +1,7 @@
 # Simple Commerce Monorepo
 
+![Coverage](https://github.com/lavantien/simple-commerce/blob/main/coverage.svg)
+
 ## goals
 
 ### user
@@ -109,4 +111,10 @@ docker compose logs -f
 
 ```bash
 docker compose down
+```
+
+- full project test and coverage
+
+```bash
+make test
 ```

@@ -1,7 +1,7 @@
 # Backlog
 
 - [ ] 10. add GitHub CI pipeline
-- [ ] 9. add coverage badge
+- [x] 9. add coverage badge
 - [x] 8. add coverage pipeline
 - [x] 7. add makefile
 - [x] 6. implement unit tests for common module
