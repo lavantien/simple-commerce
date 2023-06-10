@@ -1,6 +1,7 @@
 # Simple Commerce Monorepo
 
 ![Coverage](coverage.svg)
+![CI](https://github.com/lavantien/simple-commerce/actions/workflows/ci.yml/badge.svg)
 
 ## goals
 
