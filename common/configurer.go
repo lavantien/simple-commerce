@@ -33,7 +33,6 @@ func NewConfigurer(fileName string, fileType string, filePath string, logger *ze
 	viper.SetConfigName(fileName)
 	viper.SetConfigType(fileType)
 	viper.AddConfigPath(filePath)
-	logger.Info().Str("service", serviceName).Msgf("config file used: %v", viper.GetViper().ConfigFileUsed())
 	if err := viper.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			logger.Error().Str("service", serviceName).Err(err).Msg(TextLoadDefaultConfig)
@@ -45,6 +44,7 @@ func NewConfigurer(fileName string, fileType string, filePath string, logger *ze
 	}
 	connectionString := "postgres://" + viper.GetString("database.user") + ":" + viper.GetString("database.password") + "@" + viper.GetString("database.host") + ":" + viper.GetString("database.port") + "/" + viper.GetString("database.name")
 	logger.Info().Str("service", serviceName).Msg("configurer initialized")
+	logger.Info().Str("service", serviceName).Msgf("config file used: %v", viper.GetViper().ConfigFileUsed())
 	return &Configurer{
 		ServerHost:               viper.GetString("server.host"),
 		ServerPort:               viper.GetString("server.port"),

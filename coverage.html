@@ -55,7 +55,7 @@
 			<div id="nav">
 				<select id="files">
 				
-				<option value="file0">simple-commerce/common/configurer.go (61.5%)</option>
+				<option value="file0">simple-commerce/common/configurer.go (100.0%)</option>
 				
 				<option value="file1">simple-commerce/common/functional.go (100.0%)</option>
 				
@@ -117,18 +117,18 @@ func NewConfigurer(fileName string, fileType string, filePath string, logger *ze
         viper.SetConfigName(fileName)
         viper.SetConfigType(fileType)
         viper.AddConfigPath(filePath)
-        logger.Info().Str("service", serviceName).Msgf("config file used: %v", viper.GetViper().ConfigFileUsed())
-        if err := viper.ReadInConfig(); err != nil </span><span class="cov10" title="3">{
-                if _, ok := err.(viper.ConfigFileNotFoundError); ok </span><span class="cov10" title="3">{
+        if err := viper.ReadInConfig(); err != nil </span><span class="cov6" title="2">{
+                if _, ok := err.(viper.ConfigFileNotFoundError); ok </span><span class="cov1" title="1">{
                         logger.Error().Str("service", serviceName).Err(err).Msg(TextLoadDefaultConfig)
                         return defaultConfigurer
-                }</span> else<span class="cov0" title="0"> {
+                }</span> else<span class="cov1" title="1"> {
                         logger.Error().Str("service", serviceName).Err(err).Msg(TextFailedToReadConfig)
                         return defaultConfigurer
                 }</span>
         }
-        <span class="cov0" title="0">connectionString := "postgres://" + viper.GetString("database.user") + ":" + viper.GetString("database.password") + "@" + viper.GetString("database.host") + ":" + viper.GetString("database.port") + "/" + viper.GetString("database.name")
+        <span class="cov1" title="1">connectionString := "postgres://" + viper.GetString("database.user") + ":" + viper.GetString("database.password") + "@" + viper.GetString("database.host") + ":" + viper.GetString("database.port") + "/" + viper.GetString("database.name")
         logger.Info().Str("service", serviceName).Msg("configurer initialized")
+        logger.Info().Str("service", serviceName).Msgf("config file used: %v", viper.GetViper().ConfigFileUsed())
         return &amp;Configurer{
                 ServerHost:               viper.GetString("server.host"),
                 ServerPort:               viper.GetString("server.port"),

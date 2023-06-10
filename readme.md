@@ -118,3 +118,7 @@ docker compose down
 ```bash
 make test
 ```
+
+```bash
+make cover
+```
