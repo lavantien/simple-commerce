@@ -1,6 +1,6 @@
 # Simple Commerce Monorepo
 
-![Coverage](https://github.com/lavantien/simple-commerce/blob/main/coverage.svg)
+![Coverage](coverage.svg)
 
 ## goals
 
