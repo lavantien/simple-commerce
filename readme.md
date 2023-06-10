@@ -5,6 +5,7 @@
 ### user
 
 - can create an account or use OAuth, edit account details, login, and logout
+- account details are: name, email, password, addresses (pick from an interactive map)
 - can view order's status (pending, shipped, delivered, cancelled) and orders history
 - can view products, categories, and reviews
 - can search and sort products
@@ -66,7 +67,7 @@ each service will have:
 
 ### tech stack
 
-- backend in Go
+- backend in Go, support generic funtional programming and fuzzy testing
 - communication via HTTP
 - frontend SSR in react
 - main database in Postgres

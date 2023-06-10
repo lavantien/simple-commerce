@@ -4,6 +4,7 @@
 
 - Implement Configurer
 - Implement Logger
+- Implement Functional generic functions
 
 ## Usage
 
