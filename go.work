@@ -18,4 +18,5 @@ use (
 	./user
 	./vendor_payment
 	./vendor_shipping
+	./warehouse
 )

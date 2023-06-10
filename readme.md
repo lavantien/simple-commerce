@@ -42,10 +42,11 @@
 ### overall
 
 - user service
-- review service
-- product service
-- inventory service
 - category service
+- product service
+- review service
+- warehouse service
+- inventory service
 - order service
 - payment service
 - shipping service
@@ -67,7 +68,7 @@ each service will have:
 
 - backend in Go
 - communication via HTTP
-- frontend SSR in Go HTML template and CSS
+- frontend SSR in react
 - main database in Postgres
 - log database in Mongo
 - auth in Paseto
@@ -83,6 +84,10 @@ each service will have:
 - ZeroLog as logger
 - SQLC for generating database layer
 - GoMock for generating test mocks
+
+### frontend
+
+- using unstyled components with Base UI and Tailwind
 
 ### database
 
